@@ -37,6 +37,21 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="sidebar-item {{ request()->routeIs("banner.index") ? "active" : "" }}">
+                    <a href="{{ route("banner.index") }}" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>Banner</span>
+                    </a>
+                    {{-- <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route("banner.create") }}">Create banner</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route("banner.index") }}">All banner</a>
+                        </li>
+                    </ul> --}}
+                </li>
                 
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
