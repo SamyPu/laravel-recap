@@ -40,7 +40,9 @@ class BannerController extends Controller
             $banner->image = $banner->image;
             $banner->save();
         } else {
-            File::delete("images/". $banner->image);
+            if ($banner->image != "slider-dec.png") {
+                File::delete('images/' . $banner->image);
+            } 
             $banner->image = $request->file("image")->hashName();
             $banner->save();
             $request->file('image')->storePublicly('images', 'public');
