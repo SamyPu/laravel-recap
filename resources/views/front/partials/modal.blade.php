@@ -32,13 +32,14 @@
 
         <!-- Username & Password Login form -->
         <div class="user_login">
-            <form>
-                <label>Email / Username</label>
-                <input type="text" />
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <label for="email">Email / Username</label>
+                <input type="text" name="email" />
                 <br />
 
-                <label>Password</label>
-                <input type="password" />
+                <label for="password">Password</label>
+                <input type="password" name="password" />
                 <br />
 
                 <div class="checkbox">
@@ -49,7 +50,10 @@
                 <div class="action_btns">
                     <div class="one_half"><a href="#" class="btn back_btn"><i
                                 class="fa fa-angle-double-left"></i> Back</a></div>
-                    <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                    <div class="one_half last">
+                        {{-- <a href="#" class="btn btn_red">Login</a> --}}
+                        <button class="btn btn_red" type="submit">Login</button>
+                    </div>
                 </div>
             </form>
 
