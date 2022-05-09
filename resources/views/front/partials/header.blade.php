@@ -16,10 +16,21 @@
                             <li class="scroll-to-section"><a href="#about">About</a></li>
                             <li class="scroll-to-section"><a href="#pricing">Pricing</a></li>
                             <li class="scroll-to-section"><a href="#newsletter">Newsletter</a></li>
-                            <li>
-                                <div class="gradient-button"><a id="modal_trigger" href="#modal"><i
-                                            class="fa fa-sign-in-alt"></i> Sign In Now</a></div>
-                            </li>
+                            @if (Route::has('login'))
+                                @auth
+                                    <li>
+                                        <div class="gradient-button">
+                                            <a href="{{ route("admin") }}"><i class="fa fa-sign-in-alt"></i> Dashboard</a>
+                                        </div>
+                                    </li>
+                                @else
+                                    <li>
+                                        <div class="gradient-button">
+                                            <a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In Now</a>
+                                        </div>
+                                    </li>
+                                @endauth
+                            @endif
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>

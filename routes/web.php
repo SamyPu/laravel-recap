@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('front.index');
-});
+})->name('index');
 
 Route::get('/admin', function () {
     return view('back.dashboard');
 })->middleware(['auth'])->name('admin');
 
 require __DIR__.'/auth.php';
+
+Route::resource('/back/user', UserController::class);

@@ -23,6 +23,27 @@
 
                 <li class="sidebar-title">Page</li>
 
+                <li class="sidebar-item  has-sub {{ request()->routeIs("user.index")||request()->routeIs("user.create") ? "active" : "" }}">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>User</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route("user.create") }}">Create user</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route("user.index") }}">All user</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="sidebar-title" type="submit" style="border: none; background:#FFF">Log out</button>
+                </form>
+
+                <li class="sidebar-title"><a href="{{ route('index') }}">Exit</a></li>
             </ul> 
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
