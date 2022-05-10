@@ -3,10 +3,9 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="section-heading">
-                    <h4>Check What <em>The Clients Say</em> About Our App Dev</h4>
+                    <h4>{!! $titles[1]->title !!}</h4>
                     <img src="{{ asset("images/heading-line-dec.png") }}" alt="">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut
-                        labore et dolore magna.</p>
+                    <p>{{ $titles[1]->description }}</p>
                 </div>
             </div>
             <div class="col-lg-12">

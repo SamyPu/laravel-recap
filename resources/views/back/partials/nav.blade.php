@@ -38,6 +38,21 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item has-sub {{ request()->routeIs("service.index") ? "active" : "" }}">
+                    <a href="{{ route("service.index") }}" class="sidebar-link">
+                        <i class="bi bi-stack"></i>
+                        <span>Service</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route("service.create") }}">Create Service</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route("service.index") }}">All Service</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="sidebar-item {{ request()->routeIs("banner.index") ? "active" : "" }}">
                     <a href="{{ route("banner.index") }}" class="sidebar-link">
                         <i class="bi bi-stack"></i>

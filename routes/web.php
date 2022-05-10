@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\BannerController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::get('/admin', function () {
     return view('back.dashboard');
@@ -25,7 +26,10 @@ Route::get('/admin', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('/back/user', UserController::class);
+Route::resource('/back/service', ServiceController::class);
 
 Route::get('back/banner', [BannerController::class, 'index'])->name('banner.index');
 Route::get('back/banner/{id}/edit', [BannerController::class, 'edit'])->name('banner.edit');
 Route::post('back/banner/{id}', [BannerController::class, 'update'])->name('banner.update');
+
+
